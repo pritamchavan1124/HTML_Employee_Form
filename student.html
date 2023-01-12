@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #mydiv{
+        border:2px solid black;
+        background-color: darkorange;
+        margin-left:30%;
+        width:400px;
+        height:600px;
+    }
+
+</style>
+
+<script>
+    function mydiv1(){
+        document.getElementById("nme").style.background = "yellow";
+    }
+
+    const demoArray=[{name:"",Address:"",Hobbies:""}];
+
+    function AddData(){
+        
+         name=document.getElementById("nme").value;
+         
+         Address=document.getElementById("adrs").value;
+         
+         Hobbies =document.getElementById("hoby").value;
+
+         std={name,Address,Hobbies};
+         demoArray.push(std);
+    }
+    function DisplayData(){
+      str=""
+        for(const st of demoArray){
+          
+            str+=st.name+" "+st.Address+" "+st.Hobbies;
+           
+        }
+        document.getElementById("mydiv2").innerHTML=str
+        alert(str)
+    }
+
+
+</script>
+<body>
+    <div id="mydiv">
+        <form>
+            <lable>Name :</lable>
+            <input type="text" for="nme" id="nme" name="nme" onfocus="mydiv1()"></input><br><br>
+
+            <lable>Address :</lable>
+            <input type="text" for="adrs" id="adrs" name="adrs"></input><br><br>
+
+            <lable>Hobbies :</lable>
+            <input type="text" for="hoby" id="hoby" name="hoby"></input><br><br>
+
+            <button type="button" onclick="AddData()">Add Object</button>
+            <button type="button" onclick="DisplayData()">Display Object</button>
+
+        </form>
+        <div id="mydiv2">  
+
+        </div>
+    </div>
+</body>
+</html>

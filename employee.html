@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #mydiv{
+        border:2px solid black;
+        background-color: darkorange;
+        margin-left:30%;
+        width:400px;
+        height:600px;
+    }
+</style>
+<script>
+    const empArray=[{empid:"",name:"",address:"",email:"",salary:""}]
+
+    function changeColor(){
+        document.getElementById("empid").style.background="yellow"
+    }
+
+    function AddEmployee(){
+        empid=document.getElementById("empid").value;
+        name=document.getElementById("empname").value;
+        address=document.getElementById("adrs").value;
+        email=document.getElementById("mail").value;
+        salary=document.getElementById("sal").value;
+
+        tempob={empid,name,address,email,salary}
+        empArray.push(tempob)
+
+    }
+    function ShowAllEmployee(){
+        str=""
+        empArray.sort();
+        for(const i of empArray){
+            str+=i.empid+" "+i.name+" "+i.address+" "+i.email+" "+i.salary+"<br>"
+        }
+        document.getElementById("mydiv2").innerHTML=str
+    }
+
+
+
+</script>
+<body>
+    <div id="mydiv">
+        <form>
+            <label>Emp ID :-</label>
+            <input type="text" id="empid" name="empid" for="empid" placeholder="enter id" onfocus="changeColor()"></input><br><br>
+
+            <label>Emp Name:-</label>
+            <input type="text" id="empname" name="empname" for="empname" placeholder="enter name"></input><br><br>
+
+            <label>Emp Address:-</label>
+            <input type="text" id="adrs" name="adrs" for="adrs"></input placeholder="enter Address"><br><br>
+
+            <label>Emp Mail:-</label>
+            <input type="text" id="mail" name="mail" for="mail" placeholder="enter mail"></input><br><br>
+
+            <label>Emp Salary:-</label>
+            <input type="text" id="sal" name="sal" for="sal" placeholder="enter salary"></input><br><br>
+
+            <button type="button" id="btn" name="btn" onclick="AddEmployee()">Add Employee</button><br><br>
+            <button type="button" id="btn1" name="btn1" onclick="ShowAllEmployee()">Display Employee</button>
+        </form>
+        <div id="mydiv2">
+
+        </div>
+    </div>
+</body>
+</html>
